@@ -8,7 +8,7 @@ REQUIREMENTS:
   pymysql
   lahman2016 database
 
-For dwonloading and installing MySQL please follow this link : https://www.mysql.com/downloads/
+For downloading and installing MySQL please follow this link : https://www.mysql.com/downloads/
 
 Use the following link to see how to install kivy using pip : 
   for Windows : https://kivy.org/docs/installation/installation-windows.html
@@ -17,7 +17,7 @@ or Use this link to watch the video on how to install : https://www.youtube.com/
 
 Use this link to learn more about PyMySQL and how to install it : https://github.com/PyMySQL/PyMySQL
 
-Use the Lahman2016 SQL file and execute it in MySQL to create the lahman2016 MLB database. This database is required to get player statistics for the APP.
+Use the Lahman2016 SQL file and execute it in MySQL to create the lahman2016 MLB database. This database is required to get player statistics for the APP. Copyright (C) 1996-2017 by Sean Lahman(Copyright for Database)
 
 App Description:
 Phase - I of the APP:
