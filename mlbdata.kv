@@ -1,0 +1,242 @@
+MlbDataAnalysis:
+
+<MlbDataAnalysis>
+    orientation     :   "vertical"
+    firstname_input :   text_box_fn
+    lastname_input  :   text_box_ln
+    BoxLayout:
+        height      :   "30dp"
+        size_hint_y :   None
+        Label:
+            text    :   "MLB Data Analysis"
+            size_hint_x :   30
+
+    BoxLayout:
+        height      :   "10dp"
+        size_hint_y :   None
+        Label:
+            text    :   " "
+            size_hint_x :   30
+
+
+    BoxLayout:
+        height      :   "30dp"
+        size_hint_y :   None
+        Label:
+            text : ""
+        Label:
+            text    :   "Player Name: "
+            size_hint_x: 8
+        Label:
+            text    :   "First Name:"
+            size_hint_x: 10
+        TextInput:
+            id: text_box_fn
+            size_hint_x: 20
+        Label:
+            text    :   "Last Name:"
+            size_hint_x: 10
+        TextInput:
+            id: text_box_ln
+            size_hint_x: 20
+            padding_x:
+        Label:
+            text : ""
+
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_x: None
+        Label:
+            text: ""
+            size_hint_x: None
+        CheckBox:
+            group: "home_group"
+            size_hint_x: None
+            color   :   0.608, 0.976, 0.008, 1
+            on_active : root.cb_player_info()
+        Label:
+            text: "Player Info"
+            size_hint_x: None
+        CheckBox:
+            group: "home_group"
+            size_hint_x: None
+            color   :   0.608, 0.976, 0.008, 1
+            on_active : root.cb_player_stats()
+        Label:
+            text: "Player Stats"
+            size_hint_x: None
+        CheckBox:
+            group: "home_group"
+            size_hint_x: None
+            color   :   0.608, 0.976, 0.008, 1
+            on_active : root.cb_player_cmp()
+        Label:
+            text: "Compare Players"
+            size_hint_x: None
+
+    BoxLayout:
+        height      :   "30dp"
+        orientation: "horizontal"
+        size_hint_y: None
+        Label:
+            text : ""
+            size_hint_x : 40
+        Button:
+            text    :   "Go"
+            size_hint_x: 8
+            on_press : root.mlb_data()
+        Label:
+            text    :   ""
+            size_hint_x: 4
+        Button:
+            text: "Clear"
+            size_hint_x: 8
+            on_press    : root.clear_home()
+        Label:
+            text : ""
+            size_hint_x : 40
+    BoxLayout
+        height : "30dp"
+        orientation : "horizontal"
+        size_hint_y : None
+        Label:
+            text : ""
+            size_hint_x : 40
+        Button:
+            text : "Close App"
+            size_hint_x : 20
+            on_press    : app.stop()
+        Label:
+            text : ""
+            size_hint_x : 40
+
+<StatsPopup>:
+    size_hint : .5, .6
+    title: "Player Stats More Info"
+    color : .3, .3, .3, .3
+    BoxLayout:
+        orientation : "vertical"
+        size_hint : 1,.9
+        Label:
+            text:"Please select the Category: "
+            size_hint_y : .2
+        Spinner:
+            id : spinner_category
+            size_hint_y : .2
+            text : "<Category>"
+            values : root.choose_category
+            on_text : root.popup_yearlist(spinner_category.text)
+        Label:
+            text:"Please select the Season: "
+            size_hint_y : .2
+        Spinner:
+            id : spinner_stats_year
+            size_hint_y : .2
+            text: "<Year>"
+            values: root.year_list
+
+        BoxLayout:
+            orientation : "horizontal"
+            size_hint : 1,.5
+            Button:
+                text: "Go"
+                size_hint_x : 1
+                size_hint_y : .3
+                on_press: root.stats_popup_on_go()
+            Button:
+                text: "Close"
+                size_hint_x : 1
+                size_hint_y : .3
+                on_press: root.dismiss()
+
+<ComparePopup>:
+    size_hint : .6, .7
+    title: "Compare Players More Info"
+    color : .3, .3, .3, .3
+    player2_input_fn : text_box_cmp_fn
+    player2_input_ln : text_box_cmp_ln
+    BoxLayout:
+        orientation : "vertical"
+        size_hint : 1,1
+        Label:
+            text:"Please select the Category: "
+            size_hint_y : .2
+        Spinner:
+            id : spinner_cmp_category
+            size_hint_y : .2
+            text : "<Category>"
+            values : root.choose_cmp_category
+        Label:
+            text:"Please enter the Player 2 Name: "
+            size_hint_y : .2
+
+        BoxLayout:
+            orientation:"horizontal"
+            size_hint_y : .5
+            BoxLayout:
+                orientation:"vertical"
+                size_hint_y : 1
+                Label:
+                    text : "First Name"
+                    size_hint_y : .3
+                TextInput:
+                    size_hint_y : .3
+                    id: text_box_cmp_fn
+            BoxLayout:
+                orientation:"vertical"
+                size_hint_y : 1
+                Label:
+                    text : "Last Name"
+                    size_hint_y : .3
+                TextInput:
+                    size_hint_y : .3
+                    id: text_box_cmp_ln
+
+        BoxLayout:
+            orientation:"horizontal"
+            size_hint_y : .2
+            Label:
+                text : " "
+                size_hint_x : .8
+            Button:
+                text : "Enter"
+                size_hint_x : None
+                size_hint_y : 1
+                on_press: root.player2_name_enter(spinner_cmp_category.text)
+
+        Label:
+            text:"Please select the Season for Player 1: "
+            size_hint_y : .2
+        Spinner:
+            id : spinner_cmp_p1_year
+            size_hint_y : .2
+            text: "<Year>"
+
+        Label:
+            text:"Please select the Season for Player 2: "
+            size_hint_y : .2
+        Spinner:
+            id : spinner_cmp_p2_year
+            size_hint_y : .2
+            text: "<Year>"
+
+
+        BoxLayout:
+            orientation : "horizontal"
+            size_hint : 1,.5
+            Button:
+                text: "Go"
+                size_hint_x : 1
+                size_hint_y : .6
+                on_press: root.cmp_popup_on_go()
+            Button:
+                text: "Clear"
+                size_hint_x : 1
+                size_hint_y : .6
+                on_press: root.cmp_clear()
+            Button:
+                text: "Close"
+                size_hint_x : 1
+                size_hint_y : .6
+                on_press: root.dismiss()
+
