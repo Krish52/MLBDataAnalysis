@@ -22,6 +22,7 @@ Use the Lahman2016 SQL file and execute it in MySQL to create the lahman2016 MLB
 App Description:
 Phase - I of the APP:
   In this phase the app takes player First Name and Last Name as input and gives user 3 options to know about the player.
+    
     Option - 1: Player Info
       In this option User gets to the know player details such as (Date Of Birth, Birth Country, Height, Weight, Debut Date and Throw         arm)
      
