@@ -43,9 +43,7 @@ Phase - II of the App:
     Searching the players based on the teams.
     Basic Graphical representation of the statistics instead if showing them in the numbers.(Main purpose of doing this app)
     
-  My Deadline for the Phase - II is one week from now (Sep-28-2017). 
-  
- Please note that I am not concentrating on the design of the APP, I want to improve my skills in python and Data Analysis libraries available in Python.
+Please note that I am not concentrating on the design of the APP, I want to improve my skills in python and Data Analysis libraries available in Python.
  
 Please help me in the development of the App (and my programming skills) by pointing out the mistakes or letting me know if any method can be done simpler.
 
